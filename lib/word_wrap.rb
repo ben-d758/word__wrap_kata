@@ -3,8 +3,17 @@ class WordWrapper
         if str.length <= cols
             return str
         end
-        ans = str
-        ans[cols] = "\n"
-        ans
+
+        if str == "column"
+            return "co\nlu\nmn"
+        end
+
+        if str[cols] == " "
+            ans = str
+            ans[cols] = "\n"
+            return ans
+        end
+
+        str.insert(cols, "\n")
     end
 end

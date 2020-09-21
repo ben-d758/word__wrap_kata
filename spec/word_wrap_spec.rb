@@ -43,6 +43,25 @@ describe "WordWrap" do
                 expect(WordWrapper.new.wrapper("We are We are", 6)).to eq("We are\nWe are")
             end 
         end
+
+        context "given a word that is longer than the column width" do
+            it "returns the word split at the column width" do
+                expect(WordWrapper.new.wrapper("longer", 5)).to eq("longe\nr")
+            end 
+        end
+
+        context "given another word that is longer than the column width" do
+            it "returns the word split at the column width" do
+                expect(WordWrapper.new.wrapper("ruby", 2)).to eq("ru\nby")
+            end 
+        end
+
+        context "given words that are longer than twice the column width" do
+            it "returns the words split onto three lines" do
+                expect(WordWrapper.new.wrapper("column", 2)).to eq("co\nlu\nmn")
+            end 
+        end
+
     end 
 end
     
