@@ -3,6 +3,8 @@ class WordWrapper
         if str.length <= cols
             return str
         end
-        "word\nword"
+        ans = str
+        ans[cols] = "\n"
+        ans
     end
 end

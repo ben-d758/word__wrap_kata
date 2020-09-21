@@ -20,15 +20,31 @@ describe "WordWrap" do
             end 
         end
 
-        context "given two words equal to the column length" do
+        context "given two words equal to the column length 4" do
             it "returns each word on a separate line" do
                 expect(WordWrapper.new.wrapper("word word", 4)).to eq("word\nword")
             end 
         end
         
+        context "given two different words equal to the column length 4" do
+            it "returns each word on a separate line" do
+                expect(WordWrapper.new.wrapper("farm farm", 4)).to eq("farm\nfarm")
+            end 
+        end
+
+        context "given multiple words that equal the column width" do
+            it "returns the string with line breaks in correct point" do
+                expect(WordWrapper.new.wrapper("I am I am", 4)).to eq("I am\nI am")
+            end 
+        end
+
+        context "given multiple words that equal the column width" do
+            it "returns the string with line breaks in correct point" do
+                expect(WordWrapper.new.wrapper("We are We are", 6)).to eq("We are\nWe are")
+            end 
+        end
     end 
 end
     
-        
             
 
